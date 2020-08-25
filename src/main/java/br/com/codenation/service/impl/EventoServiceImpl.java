@@ -1,5 +1,6 @@
 package br.com.codenation.service.impl;
 
+import br.com.codenation.controller.especificacao.EspecificaoCustomizada;
 import br.com.codenation.model.Evento;
 import br.com.codenation.repository.EventoRepository;
 import br.com.codenation.service.interfaces.EventoServiceInterface;
@@ -26,8 +27,8 @@ public class EventoServiceImpl implements EventoServiceInterface {
     }
 
     @Override
-    public List<Evento> findAll(Pageable pageable) {
-        return this.eventoRepository.findAll(pageable).getContent();
+    public List<Evento> findAll(EspecificaoCustomizada especificaoCustomizada, Pageable pageable) {
+        return this.eventoRepository.findAll(especificaoCustomizada, pageable).getContent();
     }
 
     @Override
