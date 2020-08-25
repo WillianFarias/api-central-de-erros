@@ -6,17 +6,10 @@ import br.com.codenation.entiy.Level;
 import java.util.List;
 import java.util.Optional;
 
-public interface EventoServiceInterface {
+public interface EventoServiceInterface extends ServiceInterface<Evento>{
 
     Optional<Evento> findById(Long id);
 
-    List<Evento> findByDescricao(String descricao);
+    List<Evento> findAll();
 
-    List<Evento> findByLog(String log);
-
-    List<Evento> findByOrigem(String origem);
-
-    List<Evento> findByQuantidade(Long quantidade);
-
-    List<Evento> findByLevel(Level level);
 }
