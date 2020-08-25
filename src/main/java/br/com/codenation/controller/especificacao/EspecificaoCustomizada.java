@@ -8,13 +8,13 @@ import net.kaczmarzyk.spring.data.jpa.web.annotation.Spec;
 import org.springframework.data.jpa.domain.Specification;
 
 @And({
-        @Spec(path = "level", spec = Like.class),
+        //@Spec(path = "level", spec = Like.class),
         @Spec(path = "descricaoEvento", spec = Like.class),
         @Spec(path = "logEvento", spec = Like.class),
         @Spec(path = "origem", spec = Like.class),
-        @Spec(path = "quantidade", spec = Equal.class),
-        @Spec(path = "data", spec = Equal.class),
-        @Spec(path = "data", params = {"createDateGt", "createDateLt"}, spec = Equal.class)
+        @Spec(path = "quantidade", spec = Equal.class)
+        /*@Spec(path = "data", spec = Equal.class),
+        @Spec(path = "data", params = {"createDateGt", "createDateLt"}, spec = Equal.class)*/
 })
 public interface EspecificaoCustomizada extends Specification<Evento> {
 }

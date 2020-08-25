@@ -39,5 +39,4 @@ public class EventoServiceImpl implements EventoServiceInterface {
     public void deleteById(Long id) {
         this.eventoRepository.deleteById(id);
     }
-
 }
