@@ -7,6 +7,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
@@ -46,6 +47,7 @@ public class Evento {
     @Size(max = 100)
     private String origem;
 
+    @Min(1)
     @Column
     @NotNull
     private Long quantidade;
