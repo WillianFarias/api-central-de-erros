@@ -8,10 +8,7 @@ import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -27,6 +24,11 @@ public class EventoController {
     @ApiResponses(value = {@ApiResponse(code = 201, message = "Evento de log criado com sucesso")})
     public ResponseEntity<Evento> create(@Valid @RequestBody Evento evento){
         return new ResponseEntity<Evento>(this.eventoService.save(evento), HttpStatus.CREATED);
+    }
+
+    @PutMapping
+    public ResponseEntity<Evento> update(@Valid @RequestBody Evento livro) {
+        return new ResponseEntity<Evento>(this.eventoService.save(livro), HttpStatus.ACCEPTED);
     }
 
     
