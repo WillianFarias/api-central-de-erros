@@ -53,7 +53,7 @@ public class EventoController {
     }
 
     @GetMapping
-    public Page<Evento> findCustomers(EspecificaoCustomizada especificaoCustomizada, Pageable pageable){
-        return eventoService.findAll(especificaoCustomizada, pageable);
+    public ResponseEntity<Page<Evento>> findCustomers(EspecificaoCustomizada especificaoCustomizada, Pageable pageable){
+        return new ResponseEntity<>(eventoService.findAll(especificaoCustomizada, pageable), HttpStatus.OK);
     }
 }

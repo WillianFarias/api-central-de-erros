@@ -6,6 +6,7 @@ import br.com.codenation.repository.EventoRepository;
 import br.com.codenation.service.interfaces.EventoServiceInterface;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,8 +28,8 @@ public class EventoServiceImpl implements EventoServiceInterface {
     }
 
     @Override
-    public List<Evento> findAll(EspecificaoCustomizada especificaoCustomizada, Pageable pageable) {
-        return this.eventoRepository.findAll(especificaoCustomizada, pageable).getContent();
+    public Page<Evento> findAll(EspecificaoCustomizada especificaoCustomizada, Pageable pageable) {
+        return this.eventoRepository.findAll(especificaoCustomizada, pageable);
     }
 
     @Override
