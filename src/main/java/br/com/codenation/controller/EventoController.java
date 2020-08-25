@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import br.com.codenation.controller.advice.ResourceNotFoundException;
+
 import javax.validation.Valid;
 
 @RestController
@@ -31,5 +33,11 @@ public class EventoController {
         return new ResponseEntity<Evento>(this.eventoService.save(livro), HttpStatus.ACCEPTED);
     }
 
-    
+    @GetMapping("/{id}")
+    @ApiResponses(value = {@ApiResponse(code = 404, message = "Evento não encontrado"),
+            @ApiResponse(code = 200, message = "Evento localizado" )})
+    public ResponseEntity<Evento> findById(@PathVariable("id") Long id) {
+        return new ResponseEntity<Evento>(this.eventoService.findById(id).
+                orElseThrow(() -> new ResourceNotFoundException("Evento")), HttpStatus.OK);
+    }
 }
