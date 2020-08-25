@@ -24,7 +24,6 @@ public class EventoController {
     @Autowired
     private EventoServiceInterface eventoService;
 
-    @Autowired
     private EspecificaoCustomizada especificaoCustomizada;
 
     @PostMapping
@@ -54,6 +53,6 @@ public class EventoController {
 
     @GetMapping
     public ResponseEntity<Page<Evento>> findCustomers(EspecificaoCustomizada especificaoCustomizada, Pageable pageable){
-        return new ResponseEntity<>(eventoService.findAll(especificaoCustomizada, pageable), HttpStatus.OK);
+        return new ResponseEntity<>(eventoService.findAll(especificaoCustomizada ,pageable), HttpStatus.OK);
     }
 }
