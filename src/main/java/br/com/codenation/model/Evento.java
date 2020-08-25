@@ -1,10 +1,8 @@
-package br.com.codenation.entiy;
+package br.com.codenation.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -16,6 +14,8 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 public class Evento {
@@ -29,19 +29,19 @@ public class Evento {
     private Level level;
 
     @NotNull
-    @NotBlank
+    @NotBlank(message = "Campo obrigatório")
     @Column(name = "descricao_evento")
     @Size(max = 100)
     private String descricaoEvento;
 
     @NotNull
-    @NotBlank
+    @NotBlank(message = "Campo obrigatório")
     @Column(name = "log_evento")
     @Size(max = 500)
     private String logEvento;
 
     @NotNull
-    @NotBlank
+    @NotBlank(message = "Campo obrigatório")
     @Column
     @Size(max = 100)
     private String origem;

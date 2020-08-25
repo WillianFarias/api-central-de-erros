@@ -1,10 +1,11 @@
 package br.com.codenation.service.impl;
 
-import br.com.codenation.entiy.Evento;
+import br.com.codenation.model.Evento;
 import br.com.codenation.repository.EventoRepository;
 import br.com.codenation.service.interfaces.EventoServiceInterface;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,7 +14,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class EventoService implements EventoServiceInterface {
+public class EventoServiceImpl implements EventoServiceInterface {
 
     @Autowired
     private EventoRepository eventoRepository;
@@ -21,17 +22,22 @@ public class EventoService implements EventoServiceInterface {
 
     @Override
     public Optional<Evento> findById(Long id) {
-        return eventoRepository.findById(id);
+        return this.eventoRepository.findById(id);
     }
 
     @Override
-    public List<Evento> findAll() {
-        return eventoRepository.findAll();
+    public List<Evento> findAll(Pageable pageable) {
+        return this.eventoRepository.findAll(pageable).getContent();
     }
 
     @Override
-    @Transactional
     public Evento save(Evento evento) {
-        return eventoRepository.save(evento);
+        return this.eventoRepository.save(evento);
     }
+
+    @Override
+    public void deleteById(Long id) {
+        this.eventoRepository.deleteById(id);
+    }
+
 }
