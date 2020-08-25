@@ -70,7 +70,7 @@ public class EventoController {
     }*/
 
     @GetMapping
-    public ResponseEntity<Page<EventoDTO>> findCustomers(EspecificaoCustomizada especificaoCustomizada, Pageable pageable){
-        return new ResponseEntity<Page<EventoDTO>>(eventoService.findAll(especificaoCustomizada ,pageable), HttpStatus.OK);
+    public ResponseEntity<Page<Evento>> findCustomers(EspecificaoCustomizada especificaoCustomizada, Pageable pageable){
+        return new ResponseEntity<Page<Evento>>(eventoService.findAll(especificaoCustomizada ,pageable), HttpStatus.OK);
     }
 }

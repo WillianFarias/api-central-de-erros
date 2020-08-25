@@ -27,7 +27,7 @@ public class EventoServiceImpl implements EventoServiceInterface {
 
     @Override
     public Page<Evento> findAll(EspecificaoCustomizada especificaoCustomizada, Pageable pageable) {
-        return this.eventoRepository.findAll(especificaoCustomizada ,pageable);
+        return this.eventoRepository.findAll(especificaoCustomizada, pageable);
     }
 
     @Override
