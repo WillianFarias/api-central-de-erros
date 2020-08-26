@@ -61,7 +61,6 @@ public class EventoController {
     @GetMapping
     public ResponseEntity<Page<EventoDTO>> findCustomers(EspecificaoCustomizada especificaoCustomizada, Pageable pageable) {
         Page<Evento> eventos = eventoService.findAll(especificaoCustomizada, pageable);
-
         Page<EventoDTO> eventoDTO = eventos.map(eventoMapper::mapToDTO);
         return new ResponseEntity<>(eventoDTO, HttpStatus.OK);
     }
