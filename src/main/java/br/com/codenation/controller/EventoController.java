@@ -1,5 +1,6 @@
 package br.com.codenation.controller;
 
+import br.com.codenation.controller.advice.ResourceNotFoundException;
 import br.com.codenation.controller.especificacao.EspecificaoCustomizada;
 import br.com.codenation.dto.EventoDTO;
 import br.com.codenation.mappers.EventoMapper;
@@ -15,10 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import br.com.codenation.controller.advice.ResourceNotFoundException;
-
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
 @RequestMapping("/evento")
@@ -27,14 +25,18 @@ public class EventoController {
     @Autowired
     private EventoServiceInterface eventoService;
 
-    private EventoMapper eventoMapper;
+    EventoController(EventoMapper eventoMapper){
+        this.eventoMapper = eventoMapper;
+    }
+
+    private final EventoMapper eventoMapper;
 
     private EspecificaoCustomizada especificaoCustomizada;
 
     @PostMapping
     @ApiOperation("Cria novo evento de log")
     @ApiResponses(value = {@ApiResponse(code = 201, message = "Evento de log criado com sucesso")})
-    public ResponseEntity<Evento> create(@Valid @RequestBody Evento evento){
+    public ResponseEntity<Evento> create(@Valid @RequestBody Evento evento) {
         return new ResponseEntity<Evento>(this.eventoService.save(evento), HttpStatus.CREATED);
     }
 
@@ -45,7 +47,7 @@ public class EventoController {
 
     @GetMapping("/{id}")
     @ApiResponses(value = {@ApiResponse(code = 404, message = "Evento não encontrado"),
-            @ApiResponse(code = 200, message = "Evento localizado" )})
+            @ApiResponse(code = 200, message = "Evento localizado")})
     public ResponseEntity<Evento> findById(@PathVariable("id") Long id) {
         return new ResponseEntity<Evento>(this.eventoService.findById(id).
                 orElseThrow(() -> new ResourceNotFoundException("Evento")), HttpStatus.OK);
@@ -56,21 +58,11 @@ public class EventoController {
         this.eventoService.deleteById(id);
     }
 
-    /*@GetMapping
-    public ResponseEntity<Page<EventoDTO>> findCustomers(EspecificaoCustomizada especificaoCustomizada, Pageable pageable){
-        Page<Evento> eventoDTOS = eventoService.findAll(especificaoCustomizada ,pageable);
-        return new ResponseEntity<>(eventoMapper.map(eventoDTOS), HttpStatus.OK);
-    }*/
-
-    /*
     @GetMapping
-    public Iterable<Evento> findCustomers(EspecificaoCustomizada especificaoCustomizada, Pageable pageable){
-        List<Evento> eventos = eventoService.findAll(especificaoCustomizada, pageable).getContent();
-        return eventos;
-    }*/
+    public ResponseEntity<Page<EventoDTO>> findCustomers(EspecificaoCustomizada especificaoCustomizada, Pageable pageable) {
+        Page<Evento> eventos = eventoService.findAll(especificaoCustomizada, pageable);
 
-    @GetMapping
-    public ResponseEntity<Page<Evento>> findCustomers(EspecificaoCustomizada especificaoCustomizada, Pageable pageable){
-        return new ResponseEntity<Page<Evento>>(eventoService.findAll(especificaoCustomizada ,pageable), HttpStatus.OK);
+        Page<EventoDTO> eventoDTO = eventos.map(eventoMapper::mapToDTO);
+        return new ResponseEntity<>(eventoDTO, HttpStatus.OK);
     }
 }
