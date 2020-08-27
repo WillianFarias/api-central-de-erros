@@ -39,3 +39,7 @@ Após a execução é possível acessar a documentação dos metodos http da apl
 ```bash
 $ http://localhost:8080/swagger-ui.html#/
 ```
+
+##Roteiro
+Finalizando a implementação de segurança com [Oauth](https://oauth.net/2/)
+
