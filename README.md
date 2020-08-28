@@ -34,12 +34,12 @@ Executando
 $ mvn spring-boot:run
 ```
 
-##Documentação
+## Documentação
 Após a execução é possível acessar a documentação dos metodos http da aplicação por meio do seguinte url:
 ```bash
 $ http://localhost:8080/swagger-ui.html#/
 ```
 
-##Roteiro
+## Roteiro
 Finalizando a implementação de segurança com [Oauth](https://oauth.net/2/)
 
