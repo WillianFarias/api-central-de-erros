@@ -1,4 +1,4 @@
-package br.com.codenation.configuration;
+package br.com.codenation.log.configuration;
 
 import net.kaczmarzyk.spring.data.jpa.web.SpecificationArgumentResolver;
 import org.springframework.context.annotation.Configuration;

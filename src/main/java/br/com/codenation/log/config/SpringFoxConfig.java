@@ -1,4 +1,4 @@
-package br.com.codenation.config;
+package br.com.codenation.log.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

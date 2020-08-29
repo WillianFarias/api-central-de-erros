@@ -1,9 +1,9 @@
-package br.com.codenation.service.impl;
+package br.com.codenation.log.service.impl;
 
-import br.com.codenation.controller.especificacao.EspecificaoCustomizada;
-import br.com.codenation.model.Evento;
-import br.com.codenation.repository.EventoRepository;
-import br.com.codenation.service.interfaces.EventoServiceInterface;
+import br.com.codenation.log.controller.especificacao.EspecificaoCustomizada;
+import br.com.codenation.log.model.Evento;
+import br.com.codenation.log.repository.EventoRepository;
+import br.com.codenation.log.service.interfaces.EventoServiceInterface;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

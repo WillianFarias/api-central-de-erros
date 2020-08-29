@@ -1,4 +1,4 @@
-package br.com.codenation.dto;
+package br.com.codenation.log.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.NoArgsConstructor;

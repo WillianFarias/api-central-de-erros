@@ -1,4 +1,4 @@
-package br.com.codenation.controller.advice;
+package br.com.codenation.log.controller.advice;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;

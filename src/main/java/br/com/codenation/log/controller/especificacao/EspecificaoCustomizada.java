@@ -1,6 +1,6 @@
-package br.com.codenation.controller.especificacao;
+package br.com.codenation.log.controller.especificacao;
 
-import br.com.codenation.model.Evento;
+import br.com.codenation.log.model.Evento;
 import net.kaczmarzyk.spring.data.jpa.domain.Equal;
 import net.kaczmarzyk.spring.data.jpa.domain.Like;
 import net.kaczmarzyk.spring.data.jpa.web.annotation.And;

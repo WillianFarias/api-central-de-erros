@@ -1,7 +1,7 @@
-package br.com.codenation.service.interfaces;
+package br.com.codenation.log.service.interfaces;
 
-import br.com.codenation.controller.especificacao.EspecificaoCustomizada;
-import br.com.codenation.model.Evento;
+import br.com.codenation.log.controller.especificacao.EspecificaoCustomizada;
+import br.com.codenation.log.model.Evento;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

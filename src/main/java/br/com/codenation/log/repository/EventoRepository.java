@@ -1,6 +1,6 @@
-package br.com.codenation.repository;
+package br.com.codenation.log.repository;
 
-import br.com.codenation.model.Evento;
+import br.com.codenation.log.model.Evento;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;

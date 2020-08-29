@@ -1,11 +1,11 @@
-package br.com.codenation.controller;
+package br.com.codenation.log.controller;
 
-import br.com.codenation.controller.advice.ResourceNotFoundException;
-import br.com.codenation.controller.especificacao.EspecificaoCustomizada;
-import br.com.codenation.dto.EventoDTO;
-import br.com.codenation.mappers.EventoMapper;
-import br.com.codenation.model.Evento;
-import br.com.codenation.service.interfaces.EventoServiceInterface;
+import br.com.codenation.log.controller.advice.ResourceNotFoundException;
+import br.com.codenation.log.controller.especificacao.EspecificaoCustomizada;
+import br.com.codenation.log.dto.EventoDTO;
+import br.com.codenation.log.mappers.EventoMapper;
+import br.com.codenation.log.model.Evento;
+import br.com.codenation.log.service.interfaces.EventoServiceInterface;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;

@@ -1,4 +1,4 @@
-package br.com.codenation.model;
+package br.com.codenation.log.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
@@ -44,6 +44,7 @@ public class Evento {
     @Column
     @Size(max = 100)
     private String origem;
+
 
     @Min(1)
     @Column
