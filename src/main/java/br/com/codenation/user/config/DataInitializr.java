@@ -1,5 +1,6 @@
 package br.com.codenation.user.config;
 
+import br.com.codenation.user.domain.Const;
 import br.com.codenation.user.model.Role;
 import br.com.codenation.user.model.User;
 import br.com.codenation.user.repository.RoleRepository;
@@ -13,9 +14,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class DataInitializr implements ApplicationListener<ContextRefreshedEvent> {
-
-    public static final String ROLE_ADMIN = "ROLE_ADMIN";
-    public static final String ROLE_CLIENT = "ROLE_CLIENT";
 
     @Autowired
     UserRepository userRepository;
@@ -31,8 +29,8 @@ public class DataInitializr implements ApplicationListener<ContextRefreshedEvent
         List<User> users = userRepository.findAll();
 
         if (users.isEmpty()){
-            createUser("Admin", "admin", passwordEncoder.encode("123456"), ROLE_ADMIN);
-            createUser("Cliente", "cliente", passwordEncoder.encode("123456"), ROLE_CLIENT);
+            createUser("Admin", "admin", passwordEncoder.encode("123456"), Const.ROLE_ADMIN);
+            createUser("Cliente", "cliente", passwordEncoder.encode("123456"), Const.ROLE_CLIENT);
         }
     }
 
