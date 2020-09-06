@@ -9,5 +9,4 @@ public class ApiCentralDeErrosApplication {
     public static void main(String[] args) {
         SpringApplication.run(ApiCentralDeErrosApplication.class, args);
     }
-
 }

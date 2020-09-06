@@ -1,9 +1,7 @@
 package br.com.codenation.log.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.time.LocalDate;
 
@@ -66,4 +64,5 @@ public class EventoDTO {
     public void setData(LocalDate data) {
         this.data = data;
     }
+
 }

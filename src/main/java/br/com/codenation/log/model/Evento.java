@@ -2,9 +2,7 @@ package br.com.codenation.log.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -73,14 +71,6 @@ public class Evento {
         this.level = level;
     }
 
-    public String getDescricaoEvento() {
-        return descricaoEvento;
-    }
-
-    public void setDescricaoEvento(String descricaoEvento) {
-        this.descricaoEvento = descricaoEvento;
-    }
-
     public String getLogEvento() {
         return logEvento;
     }
@@ -111,5 +101,13 @@ public class Evento {
 
     public void setData(LocalDate data) {
         this.data = data;
+    }
+
+    public String getDescricaoEvento() {
+        return descricaoEvento;
+    }
+
+    public void setDescricaoEvento(String descricaoEvento) {
+        this.descricaoEvento = descricaoEvento;
     }
 }
