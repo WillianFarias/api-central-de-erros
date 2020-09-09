@@ -40,11 +40,13 @@ public class UserController {
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
+    @Secured({Const.ROLE_CLIENT, Const.ROLE_ADMIN})
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public ResponseEntity<Page<User>> list(
             @RequestParam("page") int page,
             @RequestParam("size") int size
     ){
         Pageable pageable = PageRequest.of(page, size, Sort.by("name"));
-        return new ResponseEntity<User>(userRepository.findAll(pageable), HttpStatus.OK);
+        return new ResponseEntity<Page<User>>(userRepository.findAll(pageable), HttpStatus.OK);
     }
 }
